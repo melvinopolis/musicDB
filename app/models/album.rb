@@ -3,6 +3,8 @@ class Album < ActiveRecord::Base
 	belongs_to :artist
 	has_many :songs
 
-	validates :name, presence: true
-	validates :name, uniqueness: true
+	validates :title, presence: true
+	validates :title, uniqueness: true
+
+	mount_uploader :cover, CoverUploader
 end
