@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  get 'static_pages/home'
 
-  get 'static_pages/about'
+  get '/about' => 'static_pages#about', as: 'about'
+
+  get '/welcome' => 'static_pages#welcome', as: 'welcome'
 
   root 'static_pages#home'
 
-  devise_for :users
+  devise_for :users, controllers: {
+        registrations: 'user/registrations'
+      }
   
   resources :genres
 
