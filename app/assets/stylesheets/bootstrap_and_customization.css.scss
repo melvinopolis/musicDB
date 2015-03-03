@@ -1,1 +1,44 @@
 @import "bootstrap";
+
+$backgroundcolor: #F2E9DC;
+$accentgreen: #91C499;
+$accentmedium: #808F85;
+$accentdark: #595959;
+$accentyellow: #FFCB47;
+
+body {
+	background-color: $backgroundcolor;
+	font-family: 'Arimo', sans-serif;
+	margin-left: 5%;
+	a {
+		color: $accentdark;
+		&:hover {
+			color: $accentgreen;
+		}
+	}
+}
+
+.navbar {
+	background-color: $accentgreen;
+	a {
+		color: $accentdark;
+	}
+	.navbar-brand:hover {
+		color: $accentdark;
+	}
+}
+
+h1 {
+	font-family: 'Lobster', cursive;
+	color: $accentdark;
+}
+
+table {
+	th { 
+		padding: 5px;
+		color: $accentmedium;
+	}
+	td {
+		padding: 5px;
+	}
+}

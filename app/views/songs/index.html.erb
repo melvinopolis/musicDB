@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Songs</h1>
+<h1>Songs</h1>
 
 <table>
   <thead>
@@ -31,3 +31,5 @@
 <br>
 
 <%= link_to 'New Song', new_song_path %>
+
+<%= will_paginate @songs, renderer: BootstrapPagination::Rails %>
