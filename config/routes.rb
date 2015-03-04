@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   get '/about' => 'static_pages#about', as: 'about'
 
   get '/welcome' => 'static_pages#welcome', as: 'welcome'
