@@ -3,15 +3,24 @@ class SongsController < ApplicationController
 
   before_action :authenticate_user!
 
+  include SongsHelper
   # GET /songs
   # GET /songs.json
+
   def index
     @songs = Song.paginate(page: params[:page], per_page: 20)
+    
+    # if params[:query]
+    #   @songs = Song.where(name: params[:query].titleize)
+    # else
+    #   @songs = Song.all
+    # end
   end
 
   # GET /songs/1
   # GET /songs/1.json
   def show
+    songs_and_tracks
   end
 
   # GET /songs/new

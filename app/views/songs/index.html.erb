@@ -1,5 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Search Songs:</h1>
+<div>
+  <%= form_tag("/songs", method: "get") do %>
+    <%= label_tag(:query, "Song Title:") %>
+    <%= text_field_tag(:query) %>
+    <%= submit_tag("Find Song") %>
+  <% end %>
+</div>
+
 <h1>Songs</h1>
 
 <table>
@@ -20,9 +29,7 @@
         <td><%= song.genre.name %></td>
         <td><%= song.artist.name %></td>
         <td><%= song.album.title %></td>
-        <td><%= link_to 'Show', song %></td>
-        <td><%= link_to 'Edit', edit_song_path(song) %></td>
-        <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', song %> | <%= link_to 'Edit', edit_song_path(song) %> | <%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,6 +37,6 @@
 
 <br>
 
-<%= link_to 'New Song', new_song_path %>
+<%= link_to 'New Song', new_song_path, class: "btn btn-default" %>
 
 <%= will_paginate @songs, renderer: BootstrapPagination::Rails %>

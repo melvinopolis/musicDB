@@ -20,5 +20,16 @@
   <%= @song.album.title %>
 </p>
 
+<% if @track != nil %>
+	<object width="250" height="40" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="gsSong<%= @track.id %>" name="gsSong<%= @track.id %>"><param name="movie" value="http://grooveshark.com/songWidget.swf" /><param name="wmode" value="window" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="hostname=grooveshark.com&songID=<%= @track.id %>&style=metal&p=0" /><object type="application/x-shockwave-flash" data="http://grooveshark.com/songWidget.swf" width="250" height="40"><param name="wmode" value="window" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="hostname=grooveshark.com&songID=<%= @track.id %>&style=metal&p=0" /><span></span></object></object>
+<% else %>
+	<p>This track does not exist.</p>
+<% end %>
+<br>
+<%= @lyrics %>
+
+<br>
 <%= link_to 'Edit', edit_song_path(@song) %> |
 <%= link_to 'Back', songs_path %>
+
+<p>Song audio powered by <a href="http://www.grooveshark.com/">Grooveshark</a> | Song lyrics powered by <a href="https://www.musixmatch.com">Musixmatch</a></p>
